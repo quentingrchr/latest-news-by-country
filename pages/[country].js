@@ -8,7 +8,6 @@ import Wrapper from "../src/components/wrapper/Wrapper";
 
 export default function Articles() {
   const router = useRouter();
-
   const { country } = router.query;
 
   return (

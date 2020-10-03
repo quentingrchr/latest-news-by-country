@@ -14,7 +14,7 @@ export default function CountryCard({ country, animationDelay }) {
         delay: animationDelay,
       }}
     >
-      <Link href="/[country].js" as={`/${alpha2Code}`}>
+      <Link href="/[country]" as={`/${alpha2Code}`}>
         <Card>
           <h2>{nativeName}</h2>
           <img src={flag} alt="flag" />

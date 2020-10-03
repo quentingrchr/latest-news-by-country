@@ -4,10 +4,6 @@ export default function Meta() {
   return (
     <Fragment>
       <title>Next News</title>
-      <meta
-        http-equiv="Content-Security-Policy"
-        content="upgrade-insecure-requests"
-      />
 
       <link rel="stylesheet" href="reset.css"></link>
       <link

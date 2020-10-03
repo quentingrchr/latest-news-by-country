@@ -9,9 +9,10 @@ import BtnSecondary from "../btn/BtnSecondary";
 import { NEWS_API_URL } from "../../const";
 
 export default function News({ country }) {
-  const [articles, setArticles] = useState([]);
+  const [latestArticles, setLatestArticles] = useState([]);
   const [isShown, setIsShown] = useState(false);
   const [isFetched, setIsFetched] = useState(false);
+  const [otherArticles, setOtherArticles] = useState([]);
 
   useEffect(() => {
     axios
@@ -19,7 +20,9 @@ export default function News({ country }) {
         `${NEWS_API_URL}/top-headlines/?country=${country}&apiKey=${process.env.NEWS_API_KEY}`
       )
       .then((res) => {
-        setArticles(res.data.articles);
+        const { articles } = res.data;
+        setLatestArticles(articles.splice(0, 3));
+        setOtherArticles(articles.splice(3, articles.length));
         setIsFetched(true);
         setTimeout(() => {
           setIsShown(true);
@@ -30,10 +33,10 @@ export default function News({ country }) {
   return (
     isFetched && (
       <Main>
-        {articles.length >= 1 ? (
+        {latestArticles.length >= 1 && otherArticles.length >= 1 ? (
           <>
-            <LatestArticles articles={articles} isShown={isShown} />
-            <OtherArticles articles={articles} />
+            <LatestArticles articles={latestArticles} />
+            <OtherArticles articles={otherArticles} />
           </>
         ) : (
           <NotFound>

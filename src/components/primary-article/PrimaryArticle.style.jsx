@@ -20,7 +20,6 @@ export const ArticleContainer = styled(motion.article)`
 
 export const ArticleText = styled(motion.div)`
   transform: translateY(0px);
-
   margin-top: auto;
   position: relative;
   opacity: 1;

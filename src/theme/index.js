@@ -6,7 +6,7 @@ const theme = {
   fonts: ["Lora", "sans-serif"],
   fontSizes: {
     h1: "5rem",
-    h2: "3rem",
+    h2: "2.8rem",
     subHeading: "1.4rem",
     btn: "1.5rem",
   },

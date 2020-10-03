@@ -11,7 +11,8 @@ export default function CountriesList({ countries }) {
       if (
         c.name.toLowerCase().includes(v) ||
         c.nativeName.toLowerCase().includes(v) ||
-        c.region.toLowerCase().includes(v)
+        c.region.toLowerCase().includes(v) ||
+        c.alpha2Code.toLowerCase().includes(v)
       ) {
         return true;
       } else {
@@ -41,7 +42,11 @@ export default function CountriesList({ countries }) {
       <Ul>
         {filteredCountries.length >= 1 ? (
           filteredCountries.map((c, i) => (
-            <CountryCard country={c} animationDelay={0.2 * i} />
+            <CountryCard
+              country={c}
+              animationDelay={0.2 * i}
+              key={c.alpha2Code}
+            />
           ))
         ) : (
           <NotFound>No country found</NotFound>
