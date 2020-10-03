@@ -7,6 +7,7 @@ import OtherArticles from "../other-articles/OtherArticles";
 import BtnSecondary from "../btn/BtnSecondary";
 
 import { NEWS_API_URL } from "../../const";
+import fakeRes from "../../data.json";
 
 export default function News({ country }) {
   const [latestArticles, setLatestArticles] = useState([]);
@@ -15,7 +16,7 @@ export default function News({ country }) {
   const [otherArticles, setOtherArticles] = useState([]);
 
   useEffect(() => {
-    axios
+    /*axios
       .get(
         `${NEWS_API_URL}/top-headlines/?country=${country}&apiKey=${process.env.NEWS_API_KEY}`
       )
@@ -27,7 +28,11 @@ export default function News({ country }) {
         setTimeout(() => {
           setIsShown(true);
         }, 100);
-      });
+      });*/
+    const articles = fakeRes.data.articles;
+    setLatestArticles(articles.splice(0, 3));
+    setOtherArticles(articles.splice(3, articles.length));
+    setIsFetched(true);
   }, []);
 
   return (

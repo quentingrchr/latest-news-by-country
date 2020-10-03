@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 import theme from "../../theme/index";
 
 const { colors, fontSizes, fontWeight } = theme;
 
-export const ArticleContainer = styled.div`
+export const ArticleContainer = styled.article`
   display: flex;
   flex-direction: ${(p) => (p.contentIsRight ? `row-reverse` : "row")};
   height: 24rem;
@@ -22,7 +23,6 @@ export const ArticleContainer = styled.div`
   aside {
     width: 100%;
     height: 90%;
-    background-color: red;
     overflow: hidden;
     border-radius: 5px;
 
@@ -55,7 +55,7 @@ export const ArticleContainer = styled.div`
   }
 `;
 
-export const ArticleContent = styled.div`
+export const ArticleContent = styled(motion.div)`
   height: 100%;
   width: 100%;
   margin-right: ${(p) => (p.contentIsRight ? `0` : "2rem")};
